@@ -4,9 +4,9 @@ Battleship game written entirely in Python 3.5, and using Kivy library.
 
 ## Dependencies
 
-Python 3.5    - https://www.python.org/download/releases/3.0/  
-Kivy 1.9.1    - https://kivy.org/ (or newer version)
-jsonpickle    - https://jsonpickle.github.io/  
+Python 3.5 - https://www.python.org/download/releases/3.0/  
+Kivy 1.9.1 - https://kivy.org/ (or newer version)  
+jsonpickle - https://jsonpickle.github.io/  
 
 ## Notes
 
@@ -18,7 +18,7 @@ Game was tested only on Linux (elementaryOS and Ubuntu distros).
   * Paweł Górski: pgorski42  
 
 #### Graphics:
-  * Avishy http://avishy.deviantart.com/  
+  * Avishy: http://avishy.deviantart.com/  
   * Paweł Górski: pgorski42  
 
 #### Fonts:
