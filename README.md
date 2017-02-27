@@ -24,3 +24,10 @@ Game was tested only on Linux (elementaryOS and Ubuntu distros).
 #### Fonts:
   * http://www.dafont.com/bright-young-things.font
   * http://www.dafont.com/oldstyle-hplhs.font
+
+## Screenshots
+
+![screenshot](https://github.com/pgorski42/shipy-game/blob/master/screenshots/scrn1.jpeg "Menu")  
+![screenshot](https://github.com/pgorski42/shipy-game/blob/master/screenshots/scrn2.jpeg "Selecting ships")  
+![screenshot](https://github.com/pgorski42/shipy-game/blob/master/screenshots/scrn3.jpeg "In game")  
+![screenshot](https://github.com/pgorski42/shipy-game/blob/master/screenshots/scrn4.jpeg "Endgame screen")  
