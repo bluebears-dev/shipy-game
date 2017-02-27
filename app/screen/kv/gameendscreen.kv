@@ -1,0 +1,37 @@
+#:kivy 1.9.1
+
+<GameEndScreen>:
+    text_field: field
+    moves_field: moves
+
+    AsyncImage:
+        source: 'assets/title_screen.jpg'
+        allow_stretch: True
+        keep_ratio: False
+        keep_data: True
+
+    FloatLayout:
+
+        Label:
+            id: field
+            color: 0.4, 0.3, 0, 1
+            font_size: 32
+            size_hint: None, None
+            center: root.width / 2, 3 * root.height / 4
+
+        Label:
+            id: moves
+            color: 0, 0, 0, 1
+            font_size: 26
+            size_hint: None, None
+            center: root.width / 2, 3 * root.height / 4 - 50
+
+        Image:
+            source: 'assets/crown.png'
+            center_y: -50
+
+        EndButton:
+            text: 'Main menu'
+            font_name: 'Old'
+            size_hint: .4, .1
+            pos_hint: {'x': .3, 'y': 0}

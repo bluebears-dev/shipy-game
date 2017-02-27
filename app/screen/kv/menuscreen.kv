@@ -1,0 +1,111 @@
+#:kivy 1.9.1
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+
+<PlayerInput>:
+    multiline: False
+    padding_x: 0
+    background_normal: ''
+    background_color: 0, 0, 0, 0
+    cursor_color: (1, 1, 1, 1)
+    canvas.before:
+        Color:
+            rgb: (.9, .9, .9)
+        Rectangle:
+            size: self.size[0], 1
+            pos: self.pos[0], self.pos[1] + 7
+
+<StyledButton>:
+    background_normal: 'assets/button.jpg'
+    background_down: self.background_normal
+    background_disabled_normal: 'assets/button_disabled.png'
+    opacity: 0.9
+    on_press:
+        self.background_active = self.background_normal
+        self.opacity = 1
+    on_release:
+        self.opacity = 0.9
+
+<Label>:
+    font_name: 'Bright Young Things'
+    font_size: 18
+    canvas.before:
+        Color:
+            rgba: 0, 0, 0, 0.4
+
+        Rectangle:
+            pos:
+                int(self.center_x - self.texture_size[0] / 2.) + 1,\
+                int(self.center_y - self.texture_size[1] / 2.) + 1
+
+            size: root.texture_size
+            texture: root.texture
+
+
+<MainMenuButton@StyledButton>:
+    background_color: 0, 0, 0, 0
+    font_size: 32
+    color: 0, 0, 0, 1
+    on_press:
+        self.bold = True
+    on_release:
+        self.bold = False
+
+<MenuScreen>:
+    name: 'main'
+
+    Image:
+        source: 'assets/title_screen.jpg'
+        allow_stretch: True
+        keep_ratio: False
+        keep_data: True
+
+    FloatLayout:
+
+        Image:
+            source: 'assets/logo.png'
+            size_hint_y: None
+            center_y: root.height - 70
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: 0.5, None
+            size: 0, root.height - 200
+            pos_hint: {'center_x': .5, 'center_y': .4}
+            canvas.before:
+                Color:
+                    rgb: (20.0/255, 20.0/255, 28.0/255)
+                Rectangle:
+                    size: self.size[0], 3
+                    pos: self.pos[0], 30
+            canvas.after:
+                Color:
+                    rgb: (20.0/255, 20.0/255, 28.0/255)
+                Rectangle:
+                    size: self.size[0], 3
+                    pos: self.pos[0], self.pos[1] + self.size[1] + 20
+
+            SingleplayerButton:
+                text: 'Player versus AI'
+
+            PvPButton:
+                text: 'Player versus Player'
+
+            MultiplayerButton:
+                text: 'Online'
+
+            HighscoresButton:
+                text: 'Highscores'
+
+            QuitButton:
+                text: 'Quit'
+
+    FloatLayout:
+
+        Test:
+            text: 'Created by pgorski42'
+            font_size: 12
+            color: 1, 1, 1, 1
+            size_hint: None, None
+            center: 70, 20
+            background_normal: ''
+            background_active: ''

@@ -1,0 +1,46 @@
+#:kivy 1.9.1
+
+<Cell>:
+    background_normal: 'assets/cell.png'
+    background_disabled_normal: self.background_normal
+
+<PlayerScreen>:
+    ship_grid: grid
+    ship_counter: counter
+    turn_indicator: turn
+
+    AsyncImage:
+        source: 'assets/title_screen.jpg'
+        allow_stretch: True
+        keep_ratio: False
+        keep_data: True
+
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'top'
+        size_hint: 1, .8
+
+        FloatLayout:
+
+            Label:
+                id: turn
+                text: ''
+                font_size: 26
+                size_hint: 1, 0.1
+                pos: 0, root.height * 0.02
+
+            Label:
+                id: counter
+                text: '10 ships left'
+                font_size: 26
+                color: 0, 0, 0, 1
+                size_hint: 1, 0.1
+                pos: 0, root.height * 0.8
+
+        PlayingGrid:
+            id: grid
+            size: min(root.height * 0.7, root.width), min(root.height * 0.7, root.width)
+            size_hint: None, None
+            rows: 10
+            cols: 10
+            spacing: 2

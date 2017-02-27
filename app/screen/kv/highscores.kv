@@ -1,0 +1,72 @@
+#:kivy 1.9.1
+
+<ScoreLegend@Label>:
+    size_hint_y: None
+    canvas.before:
+        Color:
+            rgb: (.9, .9, .9)
+        Rectangle:
+            size: self.size[0], 1
+            pos: self.pos[0], self.pos[1] + 15
+
+<Score>:
+    rows: 1
+    padding: 10
+    spacing: 10
+    size_hint_y:  None
+
+<HighscoresScreen>:
+    name: 'highscores'
+    score_list: list
+
+    AsyncImage:
+        source: 'assets/screen.jpg'
+        allow_stretch: True
+        keep_ratio: False
+        keep_data: True
+
+    GridLayout:
+        rows: 1
+        padding: 10
+        spacing: 10
+
+        ScoreLegend:
+            font_size: 30
+            font_name: 'Old'
+            text: 'Winner'
+
+        ScoreLegend:
+            font_size: 30
+            font_name: 'Old'
+            text: 'Loser'
+
+        ScoreLegend:
+            font_size: 30
+            font_name: 'Old'
+            text: 'Number of moves'
+
+    FloatLayout:
+
+        ScrollView:
+            size_hint: 1, None
+            size: (root.width, root.height - 200)
+            center: root.width / 2, root.height / 2
+
+            GridLayout:
+                id: list
+                padding: 10
+                spacing: 10
+                cols: 1
+                size_hint_y:  None
+                height: self.minimum_height
+
+    FloatLayout:
+
+        StyledButton:
+            font_name: 'Old'
+            size_hint: None, None
+            size: 2 * root.width / 5, 60
+            center_x: root.width / 2
+            text: 'Main menu'
+            on_release:
+                app.screen_manager.current = 'main'

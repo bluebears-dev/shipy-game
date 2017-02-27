@@ -1,0 +1,80 @@
+#:kivy 1.9.1
+
+<ConnectionLabel@Label>:
+    font_size: 26
+    size_hint: None, None
+    size: root.width * .6, 30
+
+<MultiplayerScreen>:
+    name: 'multiplayer'
+    error_message: error
+    address_field: ip
+    port_field: port
+
+    AsyncImage:
+        source: 'assets/screen.jpg'
+        allow_stretch: True
+        keep_ratio: False
+        keep_data: True
+
+    AnchorLayout:
+        anchor_y: 'top'
+
+        FloatLayout:
+
+            Label:
+                font_size: 26
+                size_hint: None, None
+                size: root.width * .6, 30
+                text: 'IP address of server'
+                center: root.width / 2, root.height - 30
+
+            PlayerInput:
+                id: ip
+                text: '127.0.1.1'
+                font_name: 'Old'
+                font_size: 24
+                size_hint: None, None
+                size: root.width * .6, 45
+                center: root.width / 2, root.height - 70
+
+            Label:
+                text: 'Server port'
+                center: root.width / 2, root.height - 130
+                font_size: 26
+                size_hint: None, None
+                size: root.width * .6, 30
+
+            PlayerInput:
+                id: port
+                text: '7777'
+                font_name: 'Old'
+                font_size: 24
+                size_hint: None, None
+                size: root.width * .6, 45
+                center: root.width / 2, root.height - 170
+
+            Label:
+                id: error
+                text: ''
+                center: root.width / 2, root.height - 400
+                font_size: 26
+                color: 0.8, 0, 0, 0.8
+                size_hint: None, None
+                size: root.width * .6, 30
+
+        FloatLayout:
+
+            StyledButton:
+                text: 'Return'
+                font_name: 'Old'
+                size_hint: .2, .1
+                pos_hint: {'x': .3, 'y': 0}
+                on_release:
+                    app.screen_manager.current = 'main'
+
+            ConnectButton:
+                text: 'Connect'
+                font_name: 'Old'
+                size_hint: .2, .1
+                pos_hint: {'x': .5, 'y': 0}

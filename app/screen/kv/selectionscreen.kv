@@ -1,0 +1,170 @@
+#:kivy 1.9.1
+#:import SlideTransition kivy.uix.screenmanager.SlideTransition
+
+<ShipSizeButton>:
+    size_hint: None, None
+    size: 60, 60
+
+<LimitIndicator@Widget>:
+    Image:
+        source: 'assets/cross.png'
+        pos: self.parent.pos[0], self.parent.pos[1]
+        size: self.parent.size[0], self.parent.size[1]
+
+<RotatedImage>:
+    canvas.before:
+        PushMatrix
+        Rotate:
+            angle: root.angle
+            axis: 0, 0, 1
+            origin: root.center
+    canvas.after:
+        PopMatrix
+
+<ShipCell@Button>:
+    name: 'ship_cell'
+    background_color: .3, .3, .3, .7
+    background_normal: 'assets/cell.png'
+
+<ShipSelectionScreen>:
+    name: 'ship_selection'
+    ship_grid: grid
+    top_pane: pane
+    limit_indicator: limit
+    start_button: start
+    player_input: name
+
+    AsyncImage:
+        source: 'assets/screen.jpg'
+        allow_stretch: True
+        keep_ratio: False
+        keep_data: True
+
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'top'
+        size_hint: 1, .8
+
+        FloatLayout:
+
+            ShipLimitIndicator:
+                id: limit
+                rows: 4
+                cols: 1
+                size: 80 * root.height / 1080, 320 * root.height / 1080 + 15
+                size_hint: None, None
+                pos: root.width * 0.8, root.height * 0.4
+                spacing: 5
+
+                LimitIndicator:
+                    opacity: 0
+                LimitIndicator:
+                    opacity: 0
+                LimitIndicator:
+                    opacity: 0
+                LimitIndicator:
+
+        FloatLayout:
+
+            PlayerInput:
+                id: name
+                hint_text: 'Player name...'
+                font_name: 'Old'
+                font_size: 30
+                size_hint: None, None
+                size: root.width * .6, 60
+                center: root.width / 2, root.height * 0.9
+
+            ShipGrid:
+                id: grid
+                direction_button: direction
+                size_button: ship4
+                size: min(root.height * 0.7, root.width), min(root.height * 0.7, root.width)
+                size_hint: None, None
+                spacing: 2
+                rows: 10
+                cols: 10
+                center: root.width / 2, root.height / 2
+
+        FloatLayout:
+
+            ShipSelectionPane:
+                id: pane
+                rows: 5
+                cols: 1
+                spacing: 2
+                pos: root.width / 10, 0
+
+                ShipOrientationButton:
+                    id: direction
+                    image: rot
+                    background_normal: 'assets/button.jpg'
+                    size_hint: None, None
+                    size: 60, 60
+                    RotatedImage:
+                        id: rot
+                        source: 'assets/arrow.png'
+                        pos: self.parent.pos[0] + 5, self.parent.pos[1] + 5
+                        size: self.parent.size[0] - 10, self.parent.size[1] - 10
+
+
+                ShipSizeButton:
+                    id: ship4
+                    how_many: 1
+                    ship_size: 4
+                    text: 'IV'
+                    font_name: 'Old'
+                    background_color: (0, 229.0/255.0, 0, 1)
+
+                ShipSizeButton:
+                    how_many: 2
+                    ship_size: 3
+                    text: 'III'
+                    font_name: 'Old'
+
+                ShipSizeButton:
+                    how_many: 3
+                    ship_size: 2
+                    text: 'II'
+                    font_name: 'Old'
+
+                ShipSizeButton:
+                    how_many: 4
+                    ship_size: 1
+                    text: 'I'
+                    font_name: 'Old'
+
+    BoxLayout:
+        orientation: 'horizontal'
+
+        StyledButton:
+            text: 'Main menu'
+            font_name: 'Old'
+            size_hint: 0.4, None
+            size: 0, 60
+            on_press:
+                app.screen_manager.current = 'main'
+
+        RandomGridButton:
+            size_hint: 0.1, None
+            size: 0, 60
+            Image:
+                source: 'assets/random.png'
+                pos: self.parent.pos[0] + 10, self.parent.pos[1] + 10
+                size: self.parent.size[0] - 20, self.parent.size[1] - 20
+
+        ClearButton:
+            size_hint: 0.1, None
+            size: 0, 60
+            Image:
+                source: 'assets/erase.png'
+                pos: self.parent.pos[0] + 10, self.parent.pos[1] + 10
+                size: self.parent.size[0] - 20, self.parent.size[1] - 20
+
+        StartButton:
+            id: start
+            text: 'Play'
+            font_name: 'Old'
+            size_hint: 0.4, None
+            size: 0, 60
+            disabled: True

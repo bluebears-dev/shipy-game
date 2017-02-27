@@ -1,0 +1,20 @@
+#:kivy 1.9.1
+
+<ConnectionScreen>:
+    name: 'connection'
+
+    AsyncImage:
+        source: 'assets/screen.jpg'
+        allow_stretch: True
+        keep_ratio: False
+        keep_data: True
+
+    FloatLayout:
+
+        Label:
+            center: root.width / 2, root.height / 2
+            color: 0, 0, 0, 1
+            text: 'Connecting...'
+            font_size: 26
+            size_hint: None, None
+            size: root.width * .6, 30
