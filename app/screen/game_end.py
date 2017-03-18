@@ -8,7 +8,7 @@ from kivy.properties import ObjectProperty
 from kivy.uix.screenmanager import FadeTransition
 from kivy.uix.screenmanager import Screen
 
-from styledbutton import StyledButton
+from app.styledbutton import StyledButton
 
 Builder.load_file('app/screen/kv/gameendscreen.kv')
 

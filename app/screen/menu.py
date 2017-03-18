@@ -12,7 +12,7 @@ from kivy.uix.textinput import TextInput
 from app.game import ShipyGame, Player, NetPlayer, AI, singleplayer_init, multiplayer_init, pvp_init
 from app.screen.highscores import highscores_init
 from app.screen.player import PlayerScreen
-from styledbutton import StyledButton
+from app.styledbutton import StyledButton
 
 Builder.load_file('app/screen/kv/menuscreen.kv')
 first_time = True

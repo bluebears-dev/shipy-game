@@ -13,7 +13,7 @@ from kivy.uix.widget import Widget
 
 from app.color import Color
 from app.game import Ship, ShipElement, make_random_ships
-from styledbutton import StyledButton
+from app.styledbutton import StyledButton
 
 Builder.load_file('app/screen/kv/selectionscreen.kv')
 

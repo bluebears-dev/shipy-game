@@ -13,6 +13,7 @@ from kivy.lang import Builder
 from kivy.properties import ObjectProperty
 from kivy.uix.screenmanager import ScreenManager
 
+import app.screen
 from app.screen.highscores import Highscores
 
 kivy.require('1.9.1')

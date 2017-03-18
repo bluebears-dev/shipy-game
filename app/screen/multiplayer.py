@@ -9,7 +9,7 @@ from kivy.uix.label import Label
 from kivy.uix.screenmanager import Screen, SlideTransition
 
 from app.multiplayer.client import Client
-from styledbutton import StyledButton
+from app.styledbutton import StyledButton
 
 Builder.load_file('app/screen/kv/multiplayerscreen.kv')
 Builder.load_file('app/screen/kv/connection.kv')
